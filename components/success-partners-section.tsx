@@ -4,9 +4,9 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
 const partners = [
-  { src: "/succes-partners/kugiad-1.png", alt: "KUGİAD" },
-  { src: "/succes-partners/tcaree.png", alt: "TCareer" },
-  { src: "/succes-partners/zoudne.png", alt: "Zoudne" },
+  { src: "/succes-partners/kugiad-1.png", alt: "KUGİAD", href: "https://kutahyagiad.com/" },
+  { src: "/succes-partners/tcaree.png", alt: "TCareer", href: "https://tcaree.com" },
+  { src: "/succes-partners/zoudne.png", alt: "Zoudne", href: "https://zoudne.com" },
 ] as const
 
 export function SuccessPartnersSection() {
@@ -64,7 +64,12 @@ export function SuccessPartnersSection() {
               className="flex flex-1 justify-center sm:flex-none"
               style={{ transitionDelay: `${200 + i * 80}ms` }}
             >
-              <div className="group flex min-h-[4.5rem] w-full max-w-[280px] items-center justify-center rounded-xl border border-white/10 bg-black/45 px-6 py-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-black/55 sm:min-h-[5.5rem]">
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex min-h-[4.5rem] w-full max-w-[280px] items-center justify-center rounded-xl border border-white/10 bg-black/45 px-6 py-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-black/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:min-h-[5.5rem]"
+              >
                 <Image
                   src={p.src}
                   alt={p.alt}
@@ -72,7 +77,7 @@ export function SuccessPartnersSection() {
                   height={56}
                   className="h-11 w-auto max-h-12 max-w-[240px] object-contain object-center opacity-95 transition-opacity duration-300 group-hover:opacity-100 sm:h-12 sm:max-w-[260px]"
                 />
-              </div>
+              </a>
             </li>
           ))}
         </ul>
